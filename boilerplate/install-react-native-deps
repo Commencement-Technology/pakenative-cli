@@ -1,6 +1,0 @@
-#!/bin/bash
-
-#Install dependencies
-yarn add react-native-safe-area-context @reduxjs/toolkit @react-navigation/native react-native-screens @react-navigation/native-stack react-native-ui-lib react-native-reanimated react-native-gesture-handler formik react-native-svg @tanstack/react-query zod
-
-yarn pod
