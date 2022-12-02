@@ -1,25 +1,28 @@
-# pakenative-cli CLI
 
-A CLI for pakenative-cli.
+<p align="center"><img src="./screenshots/welcome.png" alt="logo" width="414px"></p>
 
-## Customizing your CLI
+# pakenative CLI - Bootstrap a sweet React Native App boilerplate with Pakenfit style🔥
 
-Check out the documentation at https://github.com/infinitered/gluegun/tree/master/docs.
 
-## Publishing to NPM
+## A sweet React Native App 
 
-To package your CLI up for NPM, do this:
+I love React Native and used it for few years.
+This boilerplate was originally for my projects and I realize that it can help others. So just enjoy!🔥
 
+## Get started
+
+To bootstrap your React Native App run the CLI:
 ```shell
-$ npm login
-$ npm whoami
-$ npm test
-
-$ npm run build
-
-$ npm publish
+$ npx pakenative-cli new myApp
 ```
 
+## TODO
+- [ ] Add multiple options 
+- [ ] Add some styles
+- [ ] Manage forms with formik and validation with zod
+- [ ] Set the redux store
+- [ ] Add more components and more screens
+- [ ] Add tests
 # License
 
 MIT - see LICENSE
