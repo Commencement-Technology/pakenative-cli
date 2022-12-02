@@ -2,10 +2,19 @@
   "name": "pakenative-cli",
   "version": "1.0.0",
   "description": "pakenfit's sweetest boilerplate for React Native",
-  "private": true,
+  "private": false,
   "types": "build/types/types.d.ts",
   "bin": {
     "pakenative-cli": "bin/pakenative-cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pakenfit/pakenative-cli"
+  },
+  "author": {
+    "name": "Pakenfit",
+    "email": "pakendux@gmail.com",
+    "url": "https://github.com/pakenfit"
   },
   "scripts": {
     "clean-build": "rm -rf ./build",
@@ -24,7 +33,9 @@
     "LICENSE",
     "readme.md",
     "docs",
-    "bin"
+    "bin",
+    "boilerplate",
+    "screenshots"
   ],
   "license": "MIT",
   "dependencies": {
