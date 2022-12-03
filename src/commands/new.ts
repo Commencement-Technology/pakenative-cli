@@ -65,7 +65,7 @@ module.exports = {
     divider();
     spinner.start(bold('Installing dependencies 🔥...'));
     await system.run(`cd ${name} && yarn install`, { trim: true });
-    await system.run(`cd ${name} && ${path(pakenativePath, 'src', 'install-deps')}`, {
+    await system.run(`cd ${name} && ${path(boilerplatePath, 'install-deps')}`, {
       trim: true,
     });
     spinner.succeed();
