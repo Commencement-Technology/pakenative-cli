@@ -83,7 +83,7 @@ module.exports = {
     muted('Make sure to have Xcode and ruby version in the _ruby-version file installed');
     muted(`cd ${name}`);
     muted('bundle install');
-    muted('cd ios && npx pod-install');
+    muted('yarn pod');
     muted(`yarn start`);
     muted('yarn ios');
   },

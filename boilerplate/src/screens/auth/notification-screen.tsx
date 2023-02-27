@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {Navigation} from '../../types/navigation-type';
 import {Screen} from '../../components/Screen';
 import {Lottie} from '../../components/Lottie';
 import {Text, View} from 'react-native';
 import {Button} from '../../components/Button';
+import {Routes} from '../../navigations/Routes';
 
 const NotificationScreen = () => {
   const navigation = useNavigation<Navigation>();
+
+  const next = useCallback(
+    () => navigation.navigate(Routes.HomeTabNav),
+    [navigation],
+  );
 
   return (
     <Screen>
@@ -29,8 +35,8 @@ const NotificationScreen = () => {
       </View>
 
       <View className="p-5 mt-10 flex flex-col gap-5">
-        <Button label="Yes, please" />
-        <Button label="Maybe later" clear />
+        <Button label="Yes, please" onPress={next} />
+        <Button label="Maybe later" clear onPress={next} />
       </View>
     </Screen>
   );
