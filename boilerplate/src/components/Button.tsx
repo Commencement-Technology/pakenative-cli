@@ -1,37 +1,65 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import {
-  Button as RNButton,
-  ButtonProps,
-  Colors,
-  TextProps,
-} from 'react-native-ui-lib';
+import classNames from 'classnames';
+import React, {FunctionComponent, SVGProps, useMemo} from 'react';
+import {Pressable, PressableProps, Text} from 'react-native';
+import {Apple} from './icons/Apple';
+import {Facebook} from './icons/Facebook';
+import {Google} from './icons/Google';
 
-type Props = Omit<ButtonProps, 'round'> & {
-  labelProps?: TextProps;
-  borderRadius?: number | string;
+type ButtonProps = PressableProps & {
+  icon?: FunctionComponent<SVGProps<SVGSVGElement>>;
+  social?: 'apple' | 'facebook' | 'google';
+  label: string;
+  rounded?: boolean;
+  uppercase?: boolean;
+  clear?: boolean;
 };
 export const Button = ({
-  backgroundColor = Colors.brand900,
-  borderRadius = 7,
-  fullWidth,
-  outlineColor = Colors.brand900,
+  icon: Icon,
+  social,
+  label,
+  rounded = true,
+  uppercase,
+  clear,
   ...rest
-}: Props) => {
+}: ButtonProps) => {
+  const filteredIcon = useMemo(() => {
+    if (social === 'apple') {
+      return <Apple />;
+    }
+    if (social === 'facebook') {
+      return <Facebook />;
+    }
+    if (social === 'google') {
+      return <Google />;
+    }
+    if (Icon) {
+      return <Icon />;
+    }
+    return null;
+  }, [Icon, social]);
+
   return (
-    <RNButton
-      {...rest}
-      backgroundColor={backgroundColor}
-      borderRadius={borderRadius}
-      style={fullWidth && styles.fullWidth}
-      outlineColor={outlineColor}
-      enableShadow
-      labelStyle={styles.label}
-    />
+    <Pressable
+      className={classNames(
+        'p-2 justify-center items-center flex flex-row gap-1 bg-brand',
+        {
+          'bg-black': social === 'apple',
+          'bg-facebook': social === 'facebook',
+          'bg-google': social === 'google',
+          'rounded-full': rounded,
+          'rounded-md': !rounded,
+          'bg-transparent': clear,
+        },
+      )}
+      {...rest}>
+      {filteredIcon}
+      <Text
+        className={classNames('text-white text-lg font-medium', {
+          uppercase: uppercase,
+          'text-brand': clear,
+        })}>
+        {label}
+      </Text>
+    </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  fullWidth: { width: '100%' },
-  label: { fontWeight: '700' },
-});

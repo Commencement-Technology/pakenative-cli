@@ -42,33 +42,29 @@ module.exports = {
       error('No app name specified!');
       return;
     }
-    const spinner = spin(bold(`Creating the project 🔥...`));
+    const spinner = spin(bold(`Creating the project with pakenfit styles🔥...`));
     spinner.start();
 
-    await system.run(
-      `npx react-native init ${name} --template react-native-template-typescript --skip-install -- --yes`,
-    );
-    spinner.succeed();
-    divider();
-    spinner.start(bold('Adding pakenfit styles 🔥...'));
     const pakenativePath = path(`${meta.src}`, '..');
     const boilerplatePath = path(pakenativePath, 'boilerplate');
-    filesystem.copy(path(boilerplatePath, 'src'), `${name}/src`, { overwrite: true });
-    filesystem.copy(path(boilerplatePath, 'App.tsx'), `${name}/App.tsx`, { overwrite: true });
-    filesystem.copy(path(boilerplatePath, 'babel.config.js'), `${name}/babel.config.js`, {
-      overwrite: true,
-    });
-    filesystem.copy(path(boilerplatePath, 'index.js'), `${name}/index.js`, {
-      overwrite: true,
-    });
+    filesystem.copy(path(boilerplatePath), `${name}`, { overwrite: true });
+
     spinner.succeed();
     divider();
+
     spinner.start(bold('Installing dependencies 🔥...'));
     await system.run(`cd ${name} && yarn install`, { trim: true });
-    await system.run(`cd ${name} && ${path(boilerplatePath, 'install-deps')}`, {
-      trim: true,
-    });
     spinner.succeed();
+    divider();
+
+    spinner.start(bold('Initializing git 🔥...'));
+    await system.run(`cd ${name} && git init`);
+    spinner.succeed();
+
+    spinner.start(bold('Reanming the app 🔥...'));
+    await system.run(`cd ${name} && npx react-native-rename ${name} --skipGitStatusCheck`);
+    spinner.succeed();
+
     success(bold('Your new app has been successfully created 🎉'));
     info(`That just took ${toSecond(timer())} s.`);
     divider();
@@ -87,7 +83,7 @@ module.exports = {
     muted('Make sure to have Xcode and ruby version in the _ruby-version file installed');
     muted(`cd ${name}`);
     muted('bundle install');
-    muted('cd ios && npx pod-install');
+    muted('yarn pod');
     muted(`yarn start`);
     muted('yarn ios');
   },
