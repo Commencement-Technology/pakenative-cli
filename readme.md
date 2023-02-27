@@ -1,5 +1,12 @@
 
-<p align="center"><img src="./screenshots/welcome.png" alt="logo" width="414px"></p>
+<p align='center'>
+<img src="./screenshots/welcome.png" alt="logo" width="200">
+<img src="./screenshots/country.png" alt="logo" width="200">
+<img src="./screenshots/onboarding1.png" alt="logo" width="200">
+<img src="./screenshots/onboarding2.png" alt="logo" width="200">
+<img src="./screenshots/notif.png" alt="logo" width="200">
+<img src="./screenshots/home_wip.png" alt="logo" width="200">
+</p>
 
 # pakenative CLI - Bootstrap a sweet React Native App boilerplate with Pakenfit style🔥
 
