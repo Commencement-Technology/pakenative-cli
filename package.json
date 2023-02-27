@@ -1,6 +1,6 @@
 {
   "name": "pakenative-cli",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "pakenfit's sweetest boilerplate for React Native",
   "private": false,
   "types": "build/types/types.d.ts",
