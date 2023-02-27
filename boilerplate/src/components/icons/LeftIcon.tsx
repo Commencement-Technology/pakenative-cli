@@ -1,12 +1,14 @@
 import * as React from 'react';
-import Svg, { Path, SvgProps } from 'react-native-svg';
-import { Colors } from '../../theme/colors';
+import Svg, {Path, SvgProps} from 'react-native-svg';
+import {ICON_SIZE} from '../../contants/sizes';
+import {Colors} from '../../theme/colors';
 
-export const LeftIcon = ({ color = Colors.BRAND, ...rest }: SvgProps) => (
+export const LeftIcon = ({color = Colors.BRAND, ...rest}: SvgProps) => (
   <Svg
     data-name="Iconly/Curved/Arrow - Left Square"
-    width={24}
-    height={24}
+    viewBox="0 0 24 24"
+    width={ICON_SIZE}
+    height={ICON_SIZE}
     {...rest}>
     <Path
       fillRule="evenodd"
