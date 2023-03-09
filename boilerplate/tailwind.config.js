@@ -14,9 +14,6 @@ module.exports = {
       colors: {
         ...colors,
       },
-      opacity: {
-        1: '0.04',
-      },
     },
   },
   plugins: [],

@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
+    "start:cache": "react-native start -- --reset-cache",
     "test": "jest",
     "pod": "cd ios && npx pod-install"
   },
@@ -15,6 +16,7 @@
     "@react-navigation/bottom-tabs": "^6.5.6",
     "@react-navigation/native": "^6.1.5",
     "@react-navigation/native-stack": "^6.9.11",
+    "@shopify/flash-list": "^1.4.1",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",
     "lottie-react-native": "^5.1.5",

@@ -71,6 +71,8 @@ export default function HomeNavigation(): JSX.Element {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
+          display: 'flex',
+          flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: Colors.BLACKMATTE,

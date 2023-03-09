@@ -70,8 +70,8 @@ export const OnBoarding = ({items, onFinish}: Props) => {
           ))}
         </View>
 
-        <View>
-          <Button label="Next" className="px-10" onPress={onNext} />
+        <View className="w-20">
+          <Button label="Next" onPress={onNext} />
         </View>
       </View>
     </View>
