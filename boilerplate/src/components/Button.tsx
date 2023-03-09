@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, {FunctionComponent, SVGProps, useMemo} from 'react';
-import {Pressable, PressableProps, Text} from 'react-native';
+import {Pressable, PressableProps, StyleSheet, Text} from 'react-native';
 import {Apple} from './icons/Apple';
 import {Facebook} from './icons/Facebook';
 import {Google} from './icons/Google';
@@ -41,7 +41,7 @@ export const Button = ({
   return (
     <Pressable
       className={classNames(
-        'p-2 justify-center items-center flex flex-row gap-1 bg-brand',
+        'p-2 justify-center items-center flex flex-row bg-brand',
         {
           'bg-black': social === 'apple',
           'bg-facebook': social === 'facebook',
@@ -51,7 +51,8 @@ export const Button = ({
           'bg-transparent': clear,
         },
       )}
-      {...rest}>
+      {...rest}
+      style={styles.gap}>
       {filteredIcon}
       <Text
         className={classNames('text-white text-lg font-medium', {
@@ -63,3 +64,7 @@ export const Button = ({
     </Pressable>
   );
 };
+
+const styles = StyleSheet.create({
+  gap: {gap: 4},
+});

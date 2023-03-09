@@ -3,7 +3,7 @@ import Svg, {Path, SvgProps} from 'react-native-svg';
 import {ICON_SIZE} from '../../contants/sizes';
 import {Colors} from '../../theme/colors';
 
-export const SearchIcon = ({color = Colors.ABBEYBLACK, ...rest}: SvgProps) => (
+export const SearchIcon = ({color = Colors.BLACKMATTE, ...rest}: SvgProps) => (
   <Svg
     width={ICON_SIZE}
     height={ICON_SIZE}

@@ -12,6 +12,7 @@ import Animated, {
   BounceInUp,
   FadeInDown,
 } from 'react-native-reanimated';
+import {StyleSheet} from 'react-native';
 
 const DURATION = 2000;
 
@@ -40,8 +41,9 @@ export const WelcomeScreen = () => {
         <Image source={welcome} className="w-full h-full flex-1" />
       </Animated.View>
       <Animated.View
-        className="flex flex-col gap-2 absolute bottom-2 w-full"
-        entering={FadeInDown.duration(DURATION).delay(2 * DURATION)}>
+        className="flex flex-col absolute bottom-2 w-full"
+        entering={FadeInDown.duration(DURATION).delay(2 * DURATION)}
+        style={styles.gap}>
         <Button social="apple" label="Continue with Apple" onPress={next} />
         <Button
           social="facebook"
@@ -53,3 +55,7 @@ export const WelcomeScreen = () => {
     </Screen>
   );
 };
+
+const styles = StyleSheet.create({
+  gap: {gap: 8},
+});

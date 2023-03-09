@@ -1,7 +1,6 @@
 import React, {ReactNode, useMemo} from 'react';
 import {View, ViewProps} from 'react-native';
-import {StyleSheet, Text} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {Text} from 'react-native';
 import {LeftIcon} from './icons/LeftIcon';
 
 type Props = ViewProps & {
@@ -17,7 +16,6 @@ export const Header = ({
   onPress,
   ...rest
 }: Props): JSX.Element => {
-  const {top} = useSafeAreaInsets();
   const leftIcon = useMemo(() => {
     if (left === null) {
       return null;
@@ -25,26 +23,12 @@ export const Header = ({
     return left || <LeftIcon fontWeight="black" onPress={onPress} />;
   }, [left, onPress]);
   return (
-    <View style={[styles.header, {top}]} {...rest}>
+    <View
+      {...rest}
+      className="flex flex-row items-center z-50 w-full justify-between">
       {leftIcon}
       <Text>{title}</Text>
-      <View style={styles.right}>{right}</View>
+      {right}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    position: 'absolute',
-    paddingHorizontal: 15,
-    zIndex: 50,
-    width: '100%',
-    justifyContent: 'space-between',
-  },
-  right: {
-    alignSelf: 'flex-end',
-  },
-});

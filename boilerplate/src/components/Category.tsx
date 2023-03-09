@@ -1,15 +1,18 @@
+import classNames from 'classnames';
 import React from 'react';
 import {Pressable, PressableProps, Text} from 'react-native';
-import {CategoryType} from '../types/category-type';
 
 type Props = PressableProps & {
-  item: CategoryType;
+  label: string;
+  isActive?: boolean;
 };
-export const Category = ({item}: Props) => {
-  const {label, icon} = item;
+export const Category = ({label, isActive}: Props) => {
   return (
-    <Pressable className="flex flex-row gap-2 bg-brand p-5 rounded-3xl justify-center items-center">
-      {icon}
+    <Pressable
+      className={classNames(
+        'flex flex-row rounded-full justify-center py-2 px-3',
+        {'bg-brand': isActive, 'bg-zinc-300': !isActive},
+      )}>
       <Text>{label}</Text>
     </Pressable>
   );

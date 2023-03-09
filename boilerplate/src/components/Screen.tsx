@@ -30,7 +30,7 @@ export const Screen = memo(
           })}
           edges={edges}>
           {hasHeader && <Header {...headerProps} />}
-          <View className=" flex flex-1">{children}</View>
+          <View className="flex flex-1">{children}</View>
         </SafeAreaView>
       );
     }
